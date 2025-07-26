@@ -1,9 +1,9 @@
 import random
 
-# Demande à l'utilisateur le nombre de caractères
+# Combien de caractères veux-tu
 caract_nombre = int(input("Combien de caractères veux-tu pour ton mot de passe ? "))
 
-# Si moins de 4 → message d'erreur
+# Au moins 4 caractères
 if caract_nombre < 4:
     print("Le mot de passe doit contenir au moins 4 caractères.")
 else:
@@ -13,7 +13,6 @@ else:
     chiffres = "0123456789"
     caracteres_speciaux = "!@#$%^&*()-_=+[]{}|;:,.<>?/~`"
 
-    # On commence avec 1 caractère de chaque type
     mot_de_passe = (
         random.choice(lettres_min) +
         random.choice(lettres_maj) +
@@ -21,14 +20,12 @@ else:
         random.choice(caracteres_speciaux)
     )
 
-    # On complète le mot de passe jusqu'à atteindre le nombre demandé
     tous_les_caracteres = lettres_min + lettres_maj + chiffres + caracteres_speciaux
     for _ in range(caract_nombre - 4):
         mot_de_passe += random.choice(tous_les_caracteres)
 
-    # On mélange les caractères
     mot_de_passe = ''.join(random.sample(mot_de_passe, len(mot_de_passe)))
 
-    # On affiche le mot de passe
+    # Affichage du mot de passe
     print("\nVoici ton mot de passe généré :")
     print(mot_de_passe)
